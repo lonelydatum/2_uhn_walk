@@ -36,15 +36,18 @@ function start() {
 	tl.add("f1", .5);
 	tl.from(".logo_uhn", { duration: .3, opacity: 0 }, "f1");
 
-	var xRatio = 30 / 728;
+	var xRatio = 40 / 728;
 	var x = xRatio * w;
 
-	tl.from(".t1", { duration: .3, opacity: 0, x: "-=" + x }, "f1");
+	tl.from(".t1", { duration: .5, opacity: 0, x: "-=" + x }, "f1+=.1");
 
 	var timeRatio = .5 / 728;
-	var time = Math.max(timeRatio * w, .3);
+	var time = Math.max(timeRatio * w, .41);
 	console.log(time);
-	tl.add("f2", "+=3");
+
+	var READ = universalBanner.name === "uhn-v1" ? 2.8 : 2.2;
+
+	tl.add("f2", "+=" + READ);
 	tl.to([".t1", ".logo_uhn"], { duration: time, opacity: 0, y: -h }, "f2");
 	tl.from([".t2", ".cta"], { duration: time, opacity: 0, y: h }, "f2");
 	// tl.from(".t2", {duration:.3, opacity:0})
