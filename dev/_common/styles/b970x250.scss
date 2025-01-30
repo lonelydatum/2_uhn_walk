@@ -1,0 +1,35 @@
+@import './common.scss';
+
+#banner{
+ width: 970px;
+ height: 250px; 
+}
+
+
+#olg{
+	// border: 1px solid red;
+	width: 158px;
+	height: 81px;
+	@include pos(-2, 169);
+	// opacity: .5 !important;
+}
+
+
+
+
+#legalBtn{	
+	@include pos(825, 0);	
+	width: 140px;
+	height: 50px;
+	// opacity: 1 !important;
+}
+
+
+.ypy-all{
+	// opacity: ;
+	@include pos-scale(118, 108, 2.45);
+	img{
+		@include pos-scale(0, 0, .25);
+	}
+}
+

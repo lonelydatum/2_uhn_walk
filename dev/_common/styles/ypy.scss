@@ -1,0 +1,49 @@
+
+.ypy-all{
+	// opacity: ;
+	// @include pos(74, 185);
+	div{
+		overflow: hidden;
+		width: 30px;
+		height:19px;
+		// background-color: blue;
+		position: absolute;
+	}
+}
+.ypy_all_1{
+	@include pos(0, 0);
+}
+
+.ypy_all_2{
+	@include pos(11, 0);	
+}
+
+.ypy_all_3{
+	@include pos(25, 0);	
+}
+
+.ypy_all_4{
+	@include pos(43, 0);	
+}
+
+.ypy_all_5{
+	@include pos(58, 0);	
+}
+
+.ypy_all_6{
+	@include pos(69, 0);	
+}
+
+.ypy_all_7{
+	@include pos(85, 0);	
+}
+
+.ypy_all_8{
+	@include pos(102, 0);	
+}
+.ypy_all_9{
+	@include pos(113, 0);	
+}
+.ypy_all_10{
+	@include pos(128, 0);	
+}
