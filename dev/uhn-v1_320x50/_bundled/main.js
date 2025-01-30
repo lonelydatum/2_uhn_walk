@@ -31,15 +31,24 @@ function init() {
 function start() {
 	var tl = new TimelineMax();
 	tl.add(init());
-	// tl.from(".bg-swirl", {duration:.3, opacity:0})
-	// tl.from(".logo_uhn", {duration:.3, opacity:0})
 
-	tl.from(".t1", { duration: .3, opacity: 0 });
+	TweenLite.from(".mask", { duration: .7, width: "0%", delay: .1 });
+	tl.add("f1", .5);
+	tl.from(".logo_uhn", { duration: .3, opacity: 0 }, "f1");
 
-	tl.add("f2", "+=1");
-	tl.to([".t1", ".logo_uhn"], { duration: .3, opacity: 0 }, "f2");
-	tl.from(".t2", { duration: .3, opacity: 0 });
-	tl.from(".cta", { duration: .3, opacity: 0 });
+	var xRatio = 30 / 728;
+	var x = xRatio * w;
+
+	tl.from(".t1", { duration: .3, opacity: 0, x: "-=" + x }, "f1");
+
+	var timeRatio = .5 / 728;
+	var time = Math.max(timeRatio * w, .3);
+	console.log(time);
+	tl.add("f2", "+=3");
+	tl.to([".t1", ".logo_uhn"], { duration: time, opacity: 0, y: -h }, "f2");
+	tl.from([".t2", ".cta"], { duration: time, opacity: 0, y: h }, "f2");
+	// tl.from(".t2", {duration:.3, opacity:0})
+	// tl.from(".cta", {duration:.3, opacity:0})
 }
 
 exports.init = init;
