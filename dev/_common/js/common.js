@@ -39,7 +39,7 @@ function start(){
 
 	const timeRatio = .5/728
 	const time = Math.max(timeRatio * w, .41)
-	console.log(time);
+	
 	
 	const READ = universalBanner.name==="uhn-v1"?2.8:2.2
 	
@@ -52,6 +52,32 @@ function start(){
 }
 
 
+function start_portrait(){
+	const tl = new TimelineMax()
+	tl.add(init())	
+
+	const ratio = .7/300
+	TweenLite.from(".mask", {duration:Math.min(ratio*w, 1.3), width:"0%", delay:.1})
+	
+	tl.add("f1", .5)
+	tl.from(".logo_uhn", {duration:.3, opacity:0}, "f1")
+
+	const xRatio = 40/728
+	const x = xRatio * w
+
+	tl.from(".t1", {duration:.5, opacity:0, x:`-=${x}`}, "f1+=.3")
 
 
-export { init, olg, bannerSize, start }
+	tl.from(".cta", {duration:.5, opacity:0 }, "+=.3")
+
+	tl.from(".t2", {duration:.5, opacity:0, delay:.1}, "+=.3")
+
+
+
+	
+}
+
+
+
+
+export { init, olg, bannerSize, start, start_portrait }

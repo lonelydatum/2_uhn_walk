@@ -43,7 +43,6 @@ function start() {
 
 	var timeRatio = .5 / 728;
 	var time = Math.max(timeRatio * w, .41);
-	console.log(time);
 
 	var READ = universalBanner.name === "uhn-v1" ? 2.8 : 2.2;
 
@@ -54,10 +53,31 @@ function start() {
 	// tl.from(".cta", {duration:.3, opacity:0})
 }
 
+function start_portrait() {
+	var tl = new TimelineMax();
+	tl.add(init());
+
+	var ratio = .7 / 300;
+	TweenLite.from(".mask", { duration: Math.min(ratio * w, 1.3), width: "0%", delay: .1 });
+
+	tl.add("f1", .5);
+	tl.from(".logo_uhn", { duration: .3, opacity: 0 }, "f1");
+
+	var xRatio = 40 / 728;
+	var x = xRatio * w;
+
+	tl.from(".t1", { duration: .5, opacity: 0, x: "-=" + x }, "f1+=.3");
+
+	tl.from(".cta", { duration: .5, opacity: 0 }, "+=.3");
+
+	tl.from(".t2", { duration: .5, opacity: 0, delay: .1 }, "+=.3");
+}
+
 exports.init = init;
 exports.olg = _proline.olg;
 exports.bannerSize = bannerSize;
 exports.start = start;
+exports.start_portrait = start_portrait;
 
 },{"./helpers/helpers.js":2,"./proline":3,"./ypy_fx.js":4}],2:[function(require,module,exports){
 "use strict";
